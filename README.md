@@ -12,7 +12,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 2、使别名生效，配置不展示未跟踪文件
 ```
 ~$ source $HOME/.bashrc
-dotfiles config status.showUntrackedFiles no
+~$ dotfiles config status.showUntrackedFiles no
 ```
 
 3、将需要添加进dotfiles仓库的文件add并提交
@@ -37,7 +37,8 @@ dotfiles config status.showUntrackedFiles no
 只需执行`.install.sh`即可，注意：这会覆盖掉`~/`目录原有的同名文件。
 ```
 ~$ git clone https://github.com/yuchaoshui/dotfiles.git $HOME/dotfiles
-~$ bash install.sh
+~$ cd $HOME/dotfiles
+~$ bash .install.sh
 ```
 <br>
 
