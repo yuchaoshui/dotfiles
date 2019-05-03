@@ -1,0 +1,148 @@
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 434,
+               "width": 722,
+               "x": 0,
+               "y": 0
+            },
+            "name": "yzy@rbt: ~/wk",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Gnome\\-terminal$",
+                "instance": "^gnome\\-terminal\\-server$",
+                "title": "^yzy\\@rbt\\:\\ \\~\\/wk$",
+                "transient_for": "^$"
+                //"window_role": "^gnome\\-terminal\\-window\\-8e4887f0\\-527a\\-432b\\-bdd1\\-1fe322aa2cd5$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 434,
+               "width": 722,
+               "x": 0,
+               "y": 0
+            },
+            "name": "yzy@rbt: ~/wk",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Gnome\\-terminal$",
+                "instance": "^gnome\\-terminal\\-server$",
+                "title": "^yzy\\@rbt\\:\\ \\~\\/wk$",
+                "transient_for": "^$",
+                "window_role": "^gnome\\-terminal\\-window\\-99b87510\\-c296\\-48ae\\-89aa\\-719b47bbb33a$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // splitv split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 434,
+               "width": 722,
+               "x": 0,
+               "y": 0
+            },
+            "name": "yzy@rbt: ~/wk",
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Gnome\\-terminal$",
+                "instance": "^gnome\\-terminal\\-server$",
+                "title": "^yzy\\@rbt\\:\\ \\~\\/wk$",
+                "transient_for": "^$",
+                "window_role": "^gnome\\-terminal\\-window\\-ce601e3b\\-cf0c\\-44d1\\-9168\\-4d81a97d1563$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            // splith split container with 2 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splith",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 434,
+                       "width": 722,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "yzy@rbt: ~/wk",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                        "class": "^Gnome\\-terminal$",
+                        "instance": "^gnome\\-terminal\\-server$",
+                        "title": "^yzy\\@rbt\\:\\ \\~\\/wk$",
+                        "transient_for": "^$",
+                        "window_role": "^gnome\\-terminal\\-window\\-752f0726\\-1700\\-43a6\\-b650\\-39adab3dd351$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 434,
+                       "width": 722,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "yzy@rbt: ~/wk",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                        "class": "^Gnome\\-terminal$",
+                        "instance": "^gnome\\-terminal\\-server$",
+                        "title": "^yzy\\@rbt\\:\\ \\~\\/wk$",
+                        "transient_for": "^$",
+                        "window_role": "^gnome\\-terminal\\-window\\-6850713e\\-da19\\-45db\\-a59a\\-03076b580e91$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
