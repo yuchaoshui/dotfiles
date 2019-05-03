@@ -286,7 +286,7 @@ for_window [class="feh"] floating enable
 
 
 # quick start rofi config
-# use this command to make a own command: ln -s /opt/pro/leanote/Leanote $i3config/scripts/
+# use this command to make a own command: ln -s /opt/pro/leanote/Leanote $i3config/scripts/bin/
 bindsym $mod+period exec "rofi -show run -config $i3config/rofi/monokai.rasi -fullscreen"
 bindsym $mod+Shift+period exec "rofi -show window -config $i3config/rofi/monokai.rasi -fullscreen"
 

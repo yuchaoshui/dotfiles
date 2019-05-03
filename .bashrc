@@ -117,11 +117,12 @@ if ! shopt -oq posix; then
 fi
 
 
-###########################################################
-# alias
+# alias start
 ###########################################################
 alias ll='ls -lF'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+###########################################################
+# alias finish
 
 
 # pyenv start
@@ -133,23 +134,25 @@ eval "$(pyenv init -)"
 # pyenv finish
 
 
-###########################################################
-# activate default workspace env
+# workspace env start
 ###########################################################
 export WORKON_HOME=$HOME/.virtualenvs
 pyenv virtualenvwrapper
 workon wk3
-
 ###########################################################
-# bash-git-prompt
+# workspace env finish
+
+
+# bash-git-prompt start
 ###########################################################
 export GIT_PROMPT_ONLY_IN_REPO=1
 export GIT_PROMPT_END=" $ "
 source ~/.bash-git-prompt/gitprompt.sh
-
-
 ###########################################################
-# hstr
+# bash-git-prompt finish
+
+
+# hstr start
 ###########################################################
 export HH_CONFIG=hicolor         # get more colors
 shopt -s histappend              # append new history items to .bash_history
@@ -160,6 +163,8 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file s
 # if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
 if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh -- \C-j"'; fi
 bind '"\C-r": "\C-ahstr -- \C-j"'
+###########################################################
+# hstr finish
 
 
 cat $i3config/welcome.txt
