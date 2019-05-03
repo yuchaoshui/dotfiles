@@ -4,7 +4,7 @@ cd `dirname $0`
 
 function do_sync() {
     rsync --exclude ".git/" \
-        --exclude "install.sh" \
+        --exclude ".install.sh" \
         --exclude "README.md" \
         -avh --no-perms ./ ~/
     source ~/.bashrc
