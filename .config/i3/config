@@ -97,7 +97,7 @@ set $ws2 "2:browser"
 set $ws3 "3:coding"
 set $ws4 "4:note"
 set $ws5 "5:sth"
-set $ws6 "6"
+set $ws6 "6:doc"
 set $ws7 "7:vm"
 set $ws8 "8:remote"
 set $ws9 "9:music"
@@ -187,7 +187,7 @@ set $urgent-bg-color     #E53935
 bindsym mod4+l mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l workspace $ws10, exec "terminator --title=tmp-terminal; sleep 0.2; bash $i3config/scripts/i3exit lock", mode "default"
+    bindsym l workspace $ws10, exec "sleep 0.2 && i3lock-fancy", mode "default"
     bindsym s exec "bash $i3config/scripts/i3exit suspend", mode "default"
     bindsym e exec "bash $i3config/scripts/i3exit logout", mode "default"
     bindsym h exec "bash $i3config/scripts/i3exit hibernate", mode "default"
@@ -211,7 +211,7 @@ mode "launcher" {
 # there is also a graphical tool called arandr:for setting monitors
 # arandr can make a shell script for startup monitor layout display
 set $output eDP-1
-bindsym $mod+Ctrl+l mode "brightness"
+bindsym $mod+Ctrl+p mode "brightness"
 mode "brightness" {
     # 1 2 3 4 5 6 7 8 9 means different value
     bindsym 1 exec xrandr --output $output --brightness 0.1
@@ -248,23 +248,35 @@ bindsym $mod+Shift+Tab move container to workspace back_and_forth
 
 # specific workspace, use comand to find a class name: xprop | grep WM_CLASS
 # i3-save-tree --workspace 1:terminal > $i3config/layout/WS1.json
-# exec --no-startup-id "i3-msg 'workspace 1:terminal; append_layout $i3config/layout/WS1.json'"
+exec --no-startup-id i3-msg "workspace 1:terminal; append_layout $i3config/layout/WS1.json"
 assign [class="Gnome-terminal"] $ws1
 
 assign [class="Google-chrome"] $ws2
 
 assign [class="jetbrains-pycharm"] $ws3
 assign [class="jetbrains-datagrip"] $ws3
+assign [class="Wireshark"] $ws3
 
 assign [class="Leanote"] $ws4
 
+assign [class="Wps"] $ws6
+assign [class="Wpp"] $ws6
+assign [class="Et"] $ws6
+assign [class="libreoffice-startcenter"] $ws6
+assign [class="libreoffice-writer"] $ws6
+assign [class="libreoffice-calc"] $ws6
+
 assign [class="Vmware"] $ws7
+assign [class="rdesktop"] $ws7
 
 assign [class="Remmina"] $ws8
 assign [class="SecureCRT"] $ws8
 
 assign [class="netease-cloud-music"] $ws9
 
+# assign workspace to which screen
+workspace $ws1 output HDMI-1
+workspace $ws7 output eDP-1
 
 # floating window
 for_window [title="tmp-terminal"] floating enable
@@ -283,6 +295,7 @@ for_window [title="nethogs"] floating enable
 for_window [class="Gnome-calendar"] floating enable
 for_window [class="Ao"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="rdesktop"] floating disenable
 
 
 # quick start rofi config
@@ -305,6 +318,9 @@ bindsym $mod+Ctrl+s exec xfce4-terminal --title=alsamixer -e 'alsamixer'
 
 # bar show or hide
 bindsym $mod+b bar mode toggle
+
+# mouse
+bindsym button3 move scratchpad
 
 # set start up programs
 # exec conky -c $i3config/conky/desktop.conkyc

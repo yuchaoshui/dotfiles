@@ -167,4 +167,4 @@ bind '"\C-r": "\C-ahstr -- \C-j"'
 # hstr finish
 
 
-cat $i3config/welcome.txt
+# cat $i3config/welcome.txt
