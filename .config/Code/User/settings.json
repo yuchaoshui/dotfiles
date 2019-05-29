@@ -1,0 +1,10 @@
+{
+    "python.venvPath": "~/.virtualenvs",
+    "files.autoSave": "afterDelay",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.feedback.visible": false,
+    "zenMode.hideStatusBar": false,
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.largeFileOptimizations": false,
+    "window.zoomLevel": 0
+}

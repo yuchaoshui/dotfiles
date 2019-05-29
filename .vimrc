@@ -1,76 +1,42 @@
+
+" Important settings
+let mapleader=' '
 set nocompatible
-let mapleader = ';'
 set updatetime=100
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vundle plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'python-mode/python-mode'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'mhinz/vim-startify'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'Chiel92/vim-autoformat'
-call vundle#end()
-filetype plugin indent on
+" Vim Plug
+call plug#begin('~/.vim/plugged')
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
-" indentLine settings
-let g:indentLine_enabled = 1
-let g:vim_json_syntax_conceal = 0
-autocmd Filetype json let g:indentLine_enabled = 0
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+
+Plug 'Yggdroot/indentLine'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Chiel92/vim-autoformat'
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-startify'
+
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-syntastic/syntastic'
+
+call plug#end()
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Grepper
+" sudo apt-get install silversearcher-ag
+nnoremap <leader>* :Grepper -tool ag -cword -noprompt<cr>
+let g:grepper = { 'open': 1 }
+autocmd User Grepper copen
+let g:grepper.highlight = 1
 
-" vim-autoformat settins
-" need install: sudo aptitude install astyle clang-format python-pep8 
-" need install: sudo aptitude install python3-pep8 python-autopep8 yapf
-map <F4> :Autoformat<CR>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" pymode settings
-let g:pymode_python = 'python3'
-let g:pymode_quickfix_maxheight = 12
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Tagbar settings
-let g:tagbar_autofocus=0
-let g:tagbar_right = 1
-let g:tagbar_width = 25
-map <F1> :TagbarToggle<CR>
-"autocmd VimEnter * TagbarToggle
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" startify settings
-let g:startify_custom_header = startify#fortune#boxed()
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" vim-gitgutter
+" airblade/vim-gitgutter
 map <leader>ggl :GitGutterLineHighlightsToggle<CR>
 map <leader>u :GitGutterUndoHunk<CR>
 let g:gitgutter_override_sign_column_highlight = 0
@@ -80,61 +46,74 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=3 ctermbg=0
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1 ctermbg=0
 " always show signcolumn
 if exists('&signcolumn')
-  set signcolumn=yes
+	set signcolumn=yes
 else
-  let g:gitgutter_sign_column_always = 1
+	let g:gitgutter_sign_column_always = 1
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" nerdtree settings
-"autocmd VimEnter * NERDTree
-autocmd BufWinEnter * NERDTreeMirror
-autocmd VimEnter * wincmd p
-"Close NERDTree if it is the last open buffer
+" scrooloose/nerdtree
+autocmd BufWinEnter * silent! NERDTreeMirror
+" Close NERDTree if it is the last open buffer
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 function! s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
+    if exists("t:NERDTreeBufName")
+        if bufwinnr(t:NERDTreeBufName) != -1
+            if winnr("$") == 1
+                q
+            endif
+        endif
     endif
-  endif
 endfunction
-let g:NERDTreeWinSize=30
-let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=35
+" let NERDTreeMinimalUI = 1
 nmap <leader>v :NERDTreeFind<CR>
 nmap <leader>f :NERDTreeToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" normal settings
-set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
-syntax on
-set hlsearch
-set incsearch
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
-set number
-map <F2> :w !sudo tee %
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
-if bufwinnr(1)
-  map ++ :resize +5<CR>
-  map -- :resize -5<CR>
-  map >> :vertical resize +5<CR>
-  map << :vertical resize -5<CR>
-endif
+" majutsushi/tagbar
+let g:tagbar_autofocus=0
+let g:tagbar_right = 1
+let g:tagbar_width = 35
+map <F1> :TagbarToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" window switch settings
+" Yggdroot/indentLine
+let g:indentLine_enabled = 1
+let g:vim_json_syntax_conceal = 0
+autocmd Filetype json let g:indentLine_enabled = 0
+autocmd Filetype text let g:indentLine_enabled = 0
+
+
+" Chiel92/vim-autoformat
+" sudo aptitude install astyle clang-format python-pep8
+" sudo aptitude install python3-pep8 python-autopep8 yapf
+map <F4> :Autoformat<CR>
+
+
+" mhinz/vim-startify
+let g:startify_custom_header = startify#fortune#boxed()
+
+
+" Valloric/YouCompleteMe
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+
+" Vim-syntastic/syntastic
+let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+autocmd VimEnter * silent! SyntasticToggleMode
+map <leader>l :SyntasticCheck<CR>
+map <leader><S-l> :SyntasticToggleMode<CR>
+
+
+" Multi window
+imap <C-h> <ESC><C-w>h
+imap <C-j> <ESC><C-w>j
+imap <C-k> <ESC><C-w>k
+imap <C-l> <ESC><C-w>l
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -143,20 +122,58 @@ vmap <C-h> <C-w>h
 vmap <C-j> <C-w>j
 vmap <C-k> <C-w>k
 vmap <C-l> <C-w>l
-imap <C-h> <ESC><C-w>h
-imap <C-j> <ESC><C-w>j
-imap <C-k> <ESC><C-w>k
-imap <C-l> <ESC><C-w>l
 cmap <C-h> <ESC><C-w>h
 cmap <C-j> <ESC><C-w>j
 cmap <C-k> <ESC><C-w>k
 cmap <C-l> <ESC><C-w>l
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" tab settings
+" Multi tabs
 map <Tab> gt
 map <S-Tab> gT
-map <leader>q :tabclose<CR>
+
+
+" Editor
+autocmd VimEnter * :set wrap
+autocmd VimEnter * :set colorcolumn=80
+set hlsearch
+set incsearch
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set number
+set sidescroll=1
+map <leader>q :q<CR>
+map <leader><S-q> :q!<CR>
+nnoremap <leader>g :grep <cword><CR>:cwindow<CR>
+
+
+" Clipboard
+noremap <leader>y "*y
+noremap <leader>p "*p
+noremap <leader>Y "+y
+noremap <leader>P "+p
+
+
+" Quick run
+nnoremap <leader><leader>r :call CompileRun()<CR>
+func! CompileRun()
+    exec "w"
+    if &filetype == 'c'
+        exec ':w !g++ % -o %<'
+        exec ':w !time ./%< | less'
+    elseif &filetype == 'cpp'
+        exec ':w !g++ % -o %<'
+        exec ':w !time ./%< | less'
+    elseif &filetype == 'python'
+        exec ':w !time python % | less'
+    elseif &filetype == 'sh'
+        :w !time bash % | less
+    endif
+endfunc
+
+
+" Enable this for different project's .vimrc file
+set exrc
 

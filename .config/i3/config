@@ -258,6 +258,7 @@ assign [class="jetbrains-datagrip"] $ws3
 assign [class="Wireshark"] $ws3
 
 assign [class="Leanote"] $ws4
+assign [class="electronic-wechat"] $ws4
 
 assign [class="Wps"] $ws6
 assign [class="Wpp"] $ws6
@@ -290,12 +291,13 @@ for_window [class="Arandr"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Gedit"] floating enable
-for_window [class="Sublime_text"] floating enable move scratchpad
+for_window [class="Code"] floating enable move scratchpad
 for_window [title="nethogs"] floating enable
 for_window [class="Gnome-calendar"] floating enable
 for_window [class="Ao"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="rdesktop"] floating disenable
+for_window [class="TeamViewer"] floating disenable
 
 
 # quick start rofi config
@@ -326,7 +328,6 @@ bindsym button3 move scratchpad
 # exec conky -c $i3config/conky/desktop.conkyc
 exec_always --no-startup-id feh --bg-scale $i3config/wallpaper/sunlight.jpg
 exec_always --no-startup-id compton -f
-exec_always --no-startup-id subl
 exec --no-startup-id copyq
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
