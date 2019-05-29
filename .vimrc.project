@@ -1,0 +1,7 @@
+
+" For different project settings
+" Copy this file to project dir, then rename it to .vimrc
+autocmd VimEnter * NERDTree
+autocmd VimEnter * TagbarToggle
+autocmd VimEnter * wincmd p
+
