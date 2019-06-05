@@ -267,17 +267,17 @@ assign [class="libreoffice-startcenter"] $ws6
 assign [class="libreoffice-writer"] $ws6
 assign [class="libreoffice-calc"] $ws6
 
-assign [class="Vmware"] $ws7
 assign [class="rdesktop"] $ws7
 
 assign [class="Remmina"] $ws8
 assign [class="SecureCRT"] $ws8
+assign [class="Vmware"] $ws8
 
 assign [class="netease-cloud-music"] $ws9
 
 # assign workspace to which screen
-workspace $ws1 output HDMI-1
-workspace $ws7 output eDP-1
+# workspace $ws1 output HDMI-1
+# workspace $ws7 output eDP-1
 
 # floating window
 for_window [title="tmp-terminal"] floating enable
@@ -329,6 +329,7 @@ bindsym button3 move scratchpad
 exec_always --no-startup-id feh --bg-scale $i3config/wallpaper/sunlight.jpg
 exec_always --no-startup-id compton -f
 exec --no-startup-id copyq
+exec --no-startup-id code
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy

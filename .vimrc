@@ -17,6 +17,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Chiel92/vim-autoformat'
+Plug 'pseewald/vim-anyfold'
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
@@ -28,7 +29,13 @@ Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 
-" Grepper
+" vim-anyfold
+autocmd Filetype python AnyFoldActivate
+autocmd Filetype bash AnyFoldActivate
+set foldlevel=99
+
+
+" grepper
 " sudo apt-get install silversearcher-ag
 nnoremap <leader>* :Grepper -tool ag -cword -noprompt<cr>
 let g:grepper = { 'open': 1 }
@@ -78,14 +85,14 @@ let g:tagbar_width = 35
 map <F1> :TagbarToggle<CR>
 
 
-" Yggdroot/indentLine
+" yggdroot/indentLine
 let g:indentLine_enabled = 1
 let g:vim_json_syntax_conceal = 0
 autocmd Filetype json let g:indentLine_enabled = 0
 autocmd Filetype text let g:indentLine_enabled = 0
 
 
-" Chiel92/vim-autoformat
+" chiel92/vim-autoformat
 " sudo aptitude install astyle clang-format python-pep8
 " sudo aptitude install python3-pep8 python-autopep8 yapf
 map <F4> :Autoformat<CR>
@@ -95,12 +102,15 @@ map <F4> :Autoformat<CR>
 let g:startify_custom_header = startify#fortune#boxed()
 
 
-" Valloric/YouCompleteMe
+" valloric/YouCompleteMe
+" nnoremap <leader>gd :tab split \| YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_complete_in_comments = 1
 
 
-" Vim-syntastic/syntastic
+" vim-syntastic/syntastic
 let g:syntastic_check_on_wq = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -146,7 +156,8 @@ set number
 set sidescroll=1
 map <leader>q :q<CR>
 map <leader><S-q> :q!<CR>
-nnoremap <leader>g :grep <cword><CR>:cwindow<CR>
+noremap <C-m> <Esc>$a<CR>
+noremap <C-n> <Esc>$a:<CR>
 
 
 " Clipboard
