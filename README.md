@@ -75,6 +75,9 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 4.2、自动恢复全部文件
 ```
+~$ cd ~/
+~$ dotfiles reset HEAD .vimrc
+~$ dotfiles checkout -- .restore.sh
 ~$ bash .restore.sh
 ```
 
