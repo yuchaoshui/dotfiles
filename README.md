@@ -1,4 +1,3 @@
-
 # 初始化自己的dotfiles
 ```
 ~$ git init --bare $HOME/dotfiles
@@ -66,6 +65,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 4、根据需要reset、checkout指定的文件，这样文件就会自动恢复到$HOME下对应的目录了。
 注意：这会覆盖掉`~/`目录原有的同名文件。
+<br>
 4.1、手动恢复指定文件
 ```
 ~$ dotfiles status
