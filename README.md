@@ -3,7 +3,7 @@
 ~$ git init --bare $HOME/dotfiles
 ```
 
-1、在~/.bashrc添加如下alias，此时dotfiles相当于git命令。
+1、创建别名，在~/.bashrc里面添加如下内容，此时dotfiles相当于git命令。
 ```
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 ```
@@ -47,17 +47,12 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 ~$ git clone --bare https://github.com/yuchaoshui/dotfiles.git $HOME/dotfiles
 ```
 
-1、在$HOME/.bashrc添加如下alias，此时dotfiles相当于git命令。
+1、创建临时别名，添加如下alias，此时dotfiles相当于git命令。
 ```
-alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-```
-
-2、使alias生效
-```
-~$ source $HOME/.bashrc
+~$ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 ```
 
-3、配置不展示未跟踪文件。
+2、配置不展示未跟踪文件。
 ```
 ~$ dotfiles config status.showUntrackedFiles no
 ~$ dotfiles status
@@ -76,14 +71,18 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 ~$ dotfiles reset HEAD .config/i3/config
 ~$ dotfiles checkout -- .config/i3/config
 ```
-<br>
 
 4.2、自动恢复全部文件
 ```
 bash .restore.sh
 ```
 
-5、最后查看已经恢复的文件列表。
+5、使.bashrc文件生效
+```
+~$ source $HOME/.bashrc
+```
+
+6、最后查看已经恢复的文件列表。
 ```
 ~$ dotfiles ls-files
 ```
