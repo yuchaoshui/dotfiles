@@ -66,6 +66,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 4、根据需要reset、checkout指定的文件，这样文件就会自动恢复到$HOME下对应的目录了。
 注意：这会覆盖掉`~/`目录原有的同名文件。
+4.1、手动恢复指定文件
 ```
 ~$ dotfiles status
 
@@ -75,6 +76,9 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 ~$ dotfiles reset HEAD .config/i3/config
 ~$ dotfiles checkout -- .config/i3/config
 ```
+
+4.2、自动恢复全部文件
+bash .restore.sh
 
 5、最后查看已经恢复的文件列表。
 ```
