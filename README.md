@@ -86,7 +86,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 ~$ source $HOME/.bashrc
 ```
 
-6、最后查看已经恢复的文件列表。
+6、最后查看已经恢复的文件列表。然后退出终端重新登录。
 ```
 ~$ dotfiles ls-files
 ```
