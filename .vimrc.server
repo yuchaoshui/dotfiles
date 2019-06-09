@@ -1,0 +1,76 @@
+" important settings
+let mapleader=' '
+set nocompatible
+set updatetime=100
+
+
+" multi windows
+imap <C-h> <ESC><C-w>h
+imap <C-j> <ESC><C-w>j
+imap <C-k> <ESC><C-w>k
+imap <C-l> <ESC><C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+vmap <C-h> <C-w>h
+vmap <C-j> <C-w>j
+vmap <C-k> <C-w>k
+vmap <C-l> <C-w>l
+cmap <C-h> <ESC><C-w>h
+cmap <C-j> <ESC><C-w>j
+cmap <C-k> <ESC><C-w>k
+cmap <C-l> <ESC><C-w>l
+
+
+" multi tabs
+map <Tab> gt
+map <S-Tab> gT
+
+
+" editor
+autocmd VimEnter * :set wrap
+autocmd VimEnter * :set colorcolumn=80
+set hlsearch
+set incsearch
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set number
+set sidescroll=1
+map <F2> :w !sudo tee %<CR>
+map <leader>q :q<CR>
+map <leader><S-q> :q!<CR>
+noremap <C-m> <Esc>$a<CR>
+noremap <C-n> <Esc>$a:<CR>
+
+
+" clipboard
+noremap <leader>y "*y
+noremap <leader>p "*p
+noremap <leader>Y "+y
+noremap <leader>P "+p
+
+
+" quick run
+nnoremap <leader><leader>r :call CompileRun()<CR>
+func! CompileRun()
+    exec "w"
+    if &filetype == 'c'
+        exec ':w !g++ % -o %<'
+        exec ':w !time ./%< | less'
+    elseif &filetype == 'cpp'
+        exec ':w !g++ % -o %<'
+        exec ':w !time ./%< | less'
+    elseif &filetype == 'python'
+        exec ':w !time python % | less'
+    elseif &filetype == 'sh'
+        :w !time bash % | less
+    endif
+endfunc
+
+
+" enable this for different project's .vimrc file
+set exrc
+

@@ -1,11 +1,11 @@
 
-" Important settings
+" important settings
 let mapleader=' '
 set nocompatible
 set updatetime=100
 
 
-" Vim Plug
+" vim Plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
@@ -119,7 +119,7 @@ map <leader>l :SyntasticCheck<CR>
 map <leader><S-l> :SyntasticToggleMode<CR>
 
 
-" Multi window
+" multi windows
 imap <C-h> <ESC><C-w>h
 imap <C-j> <ESC><C-w>j
 imap <C-k> <ESC><C-w>k
@@ -138,12 +138,12 @@ cmap <C-k> <ESC><C-w>k
 cmap <C-l> <ESC><C-w>l
 
 
-" Multi tabs
+" multi tabs
 map <Tab> gt
 map <S-Tab> gT
 
 
-" Editor
+" editor
 autocmd VimEnter * :set wrap
 autocmd VimEnter * :set colorcolumn=80
 set hlsearch
@@ -154,20 +154,21 @@ set softtabstop=4
 set expandtab
 set number
 set sidescroll=1
+map <F2> :w !sudo tee %<CR>
 map <leader>q :q<CR>
 map <leader><S-q> :q!<CR>
 noremap <C-m> <Esc>$a<CR>
 noremap <C-n> <Esc>$a:<CR>
 
 
-" Clipboard
+" clipboard
 noremap <leader>y "*y
 noremap <leader>p "*p
 noremap <leader>Y "+y
 noremap <leader>P "+p
 
 
-" Quick run
+" quick run
 nnoremap <leader><leader>r :call CompileRun()<CR>
 func! CompileRun()
     exec "w"
@@ -185,6 +186,6 @@ func! CompileRun()
 endfunc
 
 
-" Enable this for different project's .vimrc file
+" enable this for different project's .vimrc file
 set exrc
 
