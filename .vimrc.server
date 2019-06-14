@@ -42,18 +42,18 @@ set sidescroll=1
 map <F2> :w !sudo tee %<CR>
 map <leader>q :q<CR>
 map <leader><S-q> :q!<CR>
-noremap <C-m> <Esc>$a<CR>
 noremap <C-n> <Esc>$a:<CR>
+noremap <S-j> 5j
+noremap <S-k> 5k
 
 
 " clipboard
-noremap <leader>y "*y
-noremap <leader>p "*p
-noremap <leader>Y "+y
-noremap <leader>P "+p
+noremap <Leader>y "+yy
+vnoremap <Leader>y "+y
+noremap <Leader>p "+p
 
 
-" quick run
+" Quick Run
 nnoremap <leader><leader>r :call CompileRun()<CR>
 func! CompileRun()
     exec "w"

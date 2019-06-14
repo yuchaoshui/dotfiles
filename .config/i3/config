@@ -30,7 +30,8 @@ font pango:monospace 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -184,7 +185,7 @@ set $urgent-bg-color     #E53935
 
 
 # Set shut down, restart and locking features
-bindsym mod4+l mode "$mode_system"
+bindsym mod4+s mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l workspace $ws10, exec "sleep 0.2 && i3lock-fancy", mode "default"

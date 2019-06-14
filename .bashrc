@@ -120,7 +120,8 @@ fi
 ##############################################################################
 
 # alias settings
-alias ll='ls -lF'
+alias ll='ls -lF -I __pycache__'
+alias ls='ls --color=auto -I __pycache__'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 ##############################################################################
