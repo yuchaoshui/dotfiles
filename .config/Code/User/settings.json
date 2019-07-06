@@ -6,5 +6,20 @@
     "zenMode.hideStatusBar": false,
     "workbench.colorTheme": "Solarized Dark",
     "editor.largeFileOptimizations": false,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "editor.wordWrap": "on",
+    "update.mode": "none",
+    "editor.rulers": [
+        79,
+    ],
+    "breadcrumbs.enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": ["--ignore=W293,"],
+    "files.autoSaveDelay": 10,
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "python.formatting.provider": "black",
+    
 }

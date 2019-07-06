@@ -56,16 +56,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left 35px
-bindsym $mod+Shift+j move down 35px  
-bindsym $mod+Shift+k move up 35px
-bindsym $mod+Shift+l move right 35px
+bindsym $mod+Shift+h move left 100px
+bindsym $mod+Shift+j move down 100px  
+bindsym $mod+Shift+k move up 100px
+bindsym $mod+Shift+l move right 100px
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left 35px
-bindsym $mod+Shift+Down move down 35px
-bindsym $mod+Shift+Up move up 35px
-bindsym $mod+Shift+Right move right 35px
+bindsym $mod+Shift+Left move left 100px
+bindsym $mod+Shift+Down move down 100px
+bindsym $mod+Shift+Up move up 100px
+bindsym $mod+Shift+Right move right 100px
 
 # split in horizontal orientation
 bindsym $mod+g split h
@@ -177,22 +177,13 @@ bar {
 ###########################################################
 
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-
 
 # Set shut down, restart and locking features
-bindsym mod4+s mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+bindsym mod4+l mode "$mode_system"
+set $mode_system (l)ock, (e)xit, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l workspace $ws10, exec "sleep 0.2 && i3lock-fancy", mode "default"
-    bindsym s exec "bash $i3config/scripts/i3exit suspend", mode "default"
     bindsym e exec "bash $i3config/scripts/i3exit logout", mode "default"
-    bindsym h exec "bash $i3config/scripts/i3exit hibernate", mode "default"
-    bindsym r exec "bash $i3config/scripts/i3exit reboot", mode "default"
     bindsym Shift+s exec "bash $i3config/scripts/i3exit shutdown", mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -212,7 +203,7 @@ mode "launcher" {
 # there is also a graphical tool called arandr:for setting monitors
 # arandr can make a shell script for startup monitor layout display
 set $output eDP-1
-bindsym $mod+Ctrl+p mode "brightness"
+bindsym mod4+s mode "brightness"
 mode "brightness" {
     # 1 2 3 4 5 6 7 8 9 means different value
     bindsym 1 exec xrandr --output $output --brightness 0.1
@@ -249,7 +240,7 @@ bindsym $mod+Shift+Tab move container to workspace back_and_forth
 
 # specific workspace, use comand to find a class name: xprop | grep WM_CLASS
 # i3-save-tree --workspace 1:terminal > $i3config/layout/WS1.json
-exec --no-startup-id i3-msg "workspace 1:terminal; append_layout $i3config/layout/WS1.json"
+# exec --no-startup-id i3-msg "workspace 1:terminal; append_layout $i3config/layout/WS1.json"
 assign [class="Gnome-terminal"] $ws1
 
 assign [class="Google-chrome"] $ws2
@@ -277,8 +268,8 @@ assign [class="Vmware"] $ws8
 assign [class="netease-cloud-music"] $ws9
 
 # assign workspace to which screen
-# workspace $ws1 output HDMI-1
-# workspace $ws7 output eDP-1
+workspace $ws1 output HDMI-1
+workspace $ws7 output eDP-1
 
 # floating window
 for_window [title="tmp-terminal"] floating enable
@@ -292,13 +283,14 @@ for_window [class="Arandr"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Gedit"] floating enable
-for_window [class="Code"] floating enable move scratchpad
+for_window [class="Code"] floating enable
 for_window [title="nethogs"] floating enable
 for_window [class="Gnome-calendar"] floating enable
 for_window [class="Ao"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="rdesktop"] floating disenable
 for_window [class="TeamViewer"] floating disenable
+for_window [class="SimpleScreenRecorder"] floating enable
 
 
 # quick start rofi config
@@ -329,12 +321,11 @@ bindsym button3 move scratchpad
 # exec conky -c $i3config/conky/desktop.conkyc
 exec_always --no-startup-id feh --bg-scale $i3config/wallpaper/sunlight.jpg
 exec_always --no-startup-id compton -f
-exec --no-startup-id copyq
 exec --no-startup-id code
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy
-exec bash /opt/pro/ss/start.sh
+# exec bash /opt/pro/ss/start.sh
 
 
 # terminals: gnome-terminal terminator xfce4-terminal

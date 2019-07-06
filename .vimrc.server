@@ -49,8 +49,10 @@ noremap <S-k> 5k
 
 " clipboard
 noremap <Leader>y "+yy
-vnoremap <Leader>y "+y
 noremap <Leader>p "+p
+noremap <Leader>dd "+dd
+vnoremap <Leader>y "+y
+vnoremap <Leader>x "+x
 
 
 " Quick Run

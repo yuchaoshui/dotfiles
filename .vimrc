@@ -205,15 +205,21 @@
   map <leader><S-Q> :qall<CR>
 
   noremap <C-n> <Esc>$a:<CR>
+
   noremap <S-j> 5j
   noremap <S-k> 5k
+
+  noremap <C-e> 5<C-e>
+  noremap <C-y> 5<C-y>
 " }
 
 
 " clipboard {
   noremap <Leader>y "+yy
-  vnoremap <Leader>y "+y
   noremap <Leader>p "+p
+  noremap <Leader>dd "+dd
+  vnoremap <Leader>y "+y
+  vnoremap <Leader>x "+x
 " }
 
 
