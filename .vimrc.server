@@ -5,10 +5,6 @@ set updatetime=100
 
 
 " multi windows
-imap <C-h> <ESC><C-w>h
-imap <C-j> <ESC><C-w>j
-imap <C-k> <ESC><C-w>k
-imap <C-l> <ESC><C-w>l
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
