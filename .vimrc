@@ -163,10 +163,6 @@
 
 
 " multi windows {
-  imap <C-h> <ESC><C-w>h
-  imap <C-j> <ESC><C-w>j
-  imap <C-k> <ESC><C-w>k
-  imap <C-l> <ESC><C-w>l
   map <C-h> <C-w>h
   map <C-j> <C-w>j
   map <C-k> <C-w>k
@@ -175,10 +171,6 @@
   vmap <C-j> <C-w>j
   vmap <C-k> <C-w>k
   vmap <C-l> <C-w>l
-  cmap <C-h> <ESC><C-w>h
-  cmap <C-j> <ESC><C-w>j
-  cmap <C-k> <ESC><C-w>k
-  cmap <C-l> <ESC><C-w>l
 " }
 
 
