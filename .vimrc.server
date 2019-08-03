@@ -31,6 +31,7 @@ set softtabstop=4
 set expandtab
 set number
 set sidescroll=1
+:highlight LineNr ctermfg=grey
 map <F2> :w !sudo tee %<CR>
 map <leader>q :q<CR>
 map <leader><S-q> :q!<CR>
@@ -67,4 +68,3 @@ endfunc
 
 " enable this for different project's .vimrc file
 set exrc
-
