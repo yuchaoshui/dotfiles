@@ -105,7 +105,7 @@
   let g:tagbar_autofocus=0
   let g:tagbar_right = 1
   let g:tagbar_width = 35
-  map <F1> :TagbarToggle<CR>
+  map <F3> :TagbarToggle<CR>
 
 
 " yggdroot/indentLine
@@ -182,6 +182,7 @@
 
   noremap <C-e> 5<C-e>
   noremap <C-y> 5<C-y>
+  map <F1> :set paste<CR>
 
 
 " clipboard
