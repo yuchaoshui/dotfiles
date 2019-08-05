@@ -38,6 +38,7 @@ map <leader><S-q> :q!<CR>
 noremap <C-n> <Esc>$a:<CR>
 noremap <S-j> 5j
 noremap <S-k> 5k
+map <F1> :set paste<CR>
 
 
 " clipboard
