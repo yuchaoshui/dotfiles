@@ -183,6 +183,7 @@
   noremap <C-e> 5<C-e>
   noremap <C-y> 5<C-y>
   map <F1> :set paste<CR>
+  map <F5> :set nopaste<CR>
 
 
 " clipboard
