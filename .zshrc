@@ -8,8 +8,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export LC_CTYPE=en_US.UTF-8
-setopt no_share_history
+export LC_CTYPE=en_US.UTF-8   # tab chars duplicates
+setopt no_share_history       # no_share_history
+setopt no_nomatch             # incompatible jq .[]
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
