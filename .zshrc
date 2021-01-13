@@ -12,6 +12,11 @@ export LC_CTYPE=en_US.UTF-8   # tab chars duplicates
 setopt no_share_history       # no_share_history
 setopt no_nomatch             # incompatible jq .[]
 
+# when ctrl + w, delete the whole word
+autoload -Uz backward-kill-word-match
+bindkey '^W' backward-kill-space-word
+zle -N backward-kill-space-word backward-kill-word-match
+zstyle :zle:backward-kill-space-word word-style space
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
