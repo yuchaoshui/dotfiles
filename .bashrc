@@ -3,7 +3,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export TERM=xterm-color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export PS1="\e[35;1m[\e[0m\e[32;1m\u@\h \e[0m\e[34;1m\W\e[0m\e[35;1m]\e[0m\e[31;1m \e[0m"
+export PS1="\e[35;1m[\e[0m\e[32;1m\u@\h \e[0m\e[34;1m\W\e[0m\e[35;1m]\e[0m\e[31;1m  \e[0m"
 # export PS1="[\u@\h \W]\$ "
 
 
