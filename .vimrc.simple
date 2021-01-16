@@ -1,31 +1,37 @@
 let mapleader=' '
 set nocompatible
 set updatetime=100
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 
 autocmd VimEnter * :set wrap
 highlight LineNr ctermfg=grey
 set hlsearch
 set incsearch
+set expandtab
+set autoindent
 set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set sidescroll=1
 set scrolljump=2
-set expandtab
-set number
+set shiftwidth=4
+set softtabstop=4
 
+map <S-j> 5j
+map <S-k> 5k
 map <leader>q :q<CR>
 map <leader><S-q> :q!<CR>
 map <leader>p :set paste<CR>
 map <leader><S-p> :set nopaste<CR>
 map <leader>s :w !sudo tee %<CR>
 
-map <Leader>p "+p
-vmap <Leader>y "+y
-vmap <Leader>x "+x
-
-map <S-j> 5j
-map <S-k> 5k
+syntax on
+filetype plugin on
+inoremap <C-O> <C-X><C-O>
+inoremap <C-V> <C-X><C-V>
+inoremap <C-F> <C-X><C-F>
+inoremap <C-L> <C-X><C-L>
+set completeopt=menuone,popup,noinsert,noselect
 
 nnoremap <leader><leader>r :call CompileRun()<CR>
 func! CompileRun()
@@ -33,6 +39,6 @@ func! CompileRun()
     if &filetype == 'python'
         exec ':w !time python % | less'
     elseif &filetype == 'sh'
-        :w !time bash % | less
+        exec ':w !time bash % | less'
     endif
 endfunc
